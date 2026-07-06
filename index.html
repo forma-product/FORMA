@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORMA — Продуктовое агентство</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F3EE;
+  --ink:#181614;
+  --ink-mid:#6B6560;
+  --ink-light:#B0ABA6;
+  --rule:rgba(24,22,20,0.1);
+  --ph:#E2DDD8;
+  --ph2:#D8D3CE;
+  --sans:'Inter',system-ui,sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 5%;border-bottom:1px solid var(--rule);background:rgba(247,243,238,.92);backdrop-filter:blur(12px)}
+.nav-logo{font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:12px;font-weight:300;color:var(--ink-mid);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-contact{text-align:right;font-size:12px;font-weight:300;color:var(--ink-mid);letter-spacing:.02em}
+.nav-contact a{color:var(--ink-mid);text-decoration:none}
+@media(max-width:768px){.nav-links{display:none}.nav-contact{display:none}}
+
+/* HERO */
+.hero{min-height:100vh;padding:120px 5% 80px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;position:relative}
+.hero-left{position:relative;z-index:1}
+.hero-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mid);font-weight:400;margin-bottom:16px}
+.hero-title{font-size:clamp(64px,10vw,130px);font-weight:900;line-height:.9;letter-spacing:-.03em;text-transform:uppercase;color:var(--ink);margin-bottom:28px}
+.hero-title em{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(48px,7.5vw,100px);display:block;line-height:1;color:var(--ink-mid);letter-spacing:-.01em}
+.hero-desc{font-size:13px;font-weight:300;color:var(--ink-mid);max-width:320px;line-height:1.8;margin-bottom:36px}
+.hero-cta{display:inline-block;border:1px solid var(--ink);padding:12px 28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink);text-decoration:none;transition:all .2s}
+.hero-cta:hover{background:var(--ink);color:var(--bg)}
+.hero-right{position:relative;height:100%;min-height:520px}
+.hero-photo-main{position:absolute;right:0;top:0;width:75%;height:460px;background:var(--ph);overflow:hidden}
+.hero-photo-main::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--ph) 0%,var(--ph2) 100%)}
+.hero-photo-sm{position:absolute;left:0;bottom:40px;width:36%;height:220px;background:var(--ph2);z-index:2;overflow:hidden}
+.hero-photo-sm::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--ph2) 0%,var(--ph) 100%)}
+.hero-counter{position:absolute;bottom:0;right:0;font-size:11px;color:var(--ink-light);letter-spacing:.08em}
+.photo-label{position:absolute;bottom:10px;left:10px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-light);z-index:3}
+@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{display:none}}
+
+/* SECTIONS */
+section{padding:88px 5%}
+.wrap{max-width:1200px;margin:0 auto}
+hr.rule{border:none;border-top:1px solid var(--rule);margin:0 5%}
+
+/* SECTION LABEL */
+.sec-label{font-size:clamp(36px,6vw,80px);font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);line-height:.95;margin-bottom:48px}
+
+/* ABOUT */
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-left p{font-size:16px;font-weight:300;color:var(--ink-mid);line-height:1.8;max-width:360px}
+.about-left p strong{color:var(--ink);font-weight:500}
+.about-right p{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.85;margin-bottom:16px}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+
+/* SERVICES */
+.services{background:var(--bg)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule)}
+.service-card{background:var(--bg);padding:0}
+.service-photo{width:100%;height:280px;background:var(--ph);position:relative;overflow:hidden}
+.service-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(24,22,20,.06) 100%)}
+.service-photo.p2{background:var(--ph2)}
+.service-photo.p3{background:#D4CFC9}
+.service-body{padding:24px 20px 28px}
+.service-num{font-size:11px;letter-spacing:.1em;color:var(--ink-light);margin-bottom:12px;font-weight:400}
+.service-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.2;letter-spacing:-.01em}
+.service-desc{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.75;margin-bottom:20px}
+.service-btn{display:inline-block;border:1px solid var(--ink);padding:9px 20px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink);text-decoration:none;transition:all .2s}
+.service-btn:hover{background:var(--ink);color:var(--bg)}
+@media(max-width:860px){.services-grid{grid-template-columns:1fr}}
+
+/* PRODUCTS */
+.products{background:var(--bg)}
+.products-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:48px}
+.products-intro p{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.8}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--rule)}
+.product-card{background:var(--bg)}
+.product-photo{width:100%;aspect-ratio:3/4;background:var(--ph);position:relative}
+.product-photo.v2{background:var(--ph2)}
+.product-photo.v3{background:#CFC9C3}
+.product-photo.v4{background:#D8D2CB}
+.product-photo.v5{background:#E5E0DA}
+.product-photo.v6{background:#CCCABE}
+.product-info{padding:14px 12px 18px}
+.product-tag{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-light);margin-bottom:5px;font-weight:400}
+.product-name{font-size:13px;font-weight:500;color:var(--ink)}
+.products-note{margin-top:24px;font-size:12px;color:var(--ink-light);font-weight:300;font-style:italic;text-align:center}
+@media(max-width:860px){.products-grid{grid-template-columns:1fr 1fr}.products-intro{grid-template-columns:1fr}}
+@media(max-width:500px){.products-grid{grid-template-columns:1fr}}
+
+/* PACKAGES — table style like schedule */
+.packages{background:var(--bg)}
+.pkg-table{border-top:1px solid var(--rule)}
+.pkg-row{display:grid;grid-template-columns:1.2fr 2fr 1fr 1fr;align-items:center;padding:24px 0;border-bottom:1px solid var(--rule);gap:32px;transition:background .15s;cursor:pointer}
+.pkg-row:hover{background:rgba(24,22,20,.02)}
+.pkg-row.header{padding:12px 0;cursor:default}
+.pkg-row.header:hover{background:none}
+.pkg-col-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-light);font-weight:400}
+.pkg-name{font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.pkg-desc{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.65}
+.pkg-price{font-size:15px;font-weight:500;color:var(--ink)}
+.pkg-period{font-size:11px;font-weight:300;color:var(--ink-light)}
+.pkg-action a{display:inline-block;border:1px solid var(--ink);padding:8px 16px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--ink);text-decoration:none;transition:all .2s}
+.pkg-action a:hover{background:var(--ink);color:var(--bg)}
+.pkg-row.featured .pkg-name{color:var(--ink)}
+.pkg-row.featured{background:rgba(24,22,20,.025)}
+@media(max-width:768px){.pkg-row{grid-template-columns:1fr 1fr}.pkg-col-label:nth-child(3),.pkg-col-label:nth-child(4){display:none}.pkg-desc{display:none}}
+
+/* FORM */
+.contact{background:var(--ink)}
+.contact .sec-label{color:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-left p{font-size:13px;font-weight:300;color:rgba(247,243,238,.5);line-height:1.8;margin-bottom:20px}
+.contact-promise{font-size:12px;color:rgba(247,243,238,.35);line-height:1.9;font-weight:300}
+.contact-promise span{display:block}
+.form-field{margin-bottom:16px}
+.form-field label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,243,238,.35);font-weight:400;margin-bottom:7px}
+.form-field input,.form-field select,.form-field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(247,243,238,.15);padding:10px 0;font-family:var(--sans);font-size:14px;font-weight:300;color:var(--bg);outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-bottom-color:rgba(247,243,238,.5)}
+.form-field input::placeholder,.form-field textarea::placeholder{color:rgba(247,243,238,.2)}
+.form-field select{cursor:pointer}
+.form-field select option{background:var(--ink);color:var(--bg)}
+.form-field textarea{resize:none;min-height:80px}
+.form-field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.submit{display:inline-block;border:1px solid rgba(247,243,238,.4);padding:14px 32px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--bg);background:transparent;cursor:pointer;font-family:var(--sans);transition:all .2s;margin-top:8px}
+.submit:hover{background:var(--bg);color:var(--ink)}
+.form-note{font-size:11px;color:rgba(247,243,238,.2);margin-top:10px;font-weight:300}
+.success-state{display:none;padding:40px 0;text-align:left}
+.success-state.on{display:block}
+.success-glyph{font-family:var(--serif);font-size:56px;color:rgba(247,243,238,.3);line-height:1;margin-bottom:20px;font-style:italic}
+.success-state h3{font-size:28px;font-weight:700;color:var(--bg);margin-bottom:8px;letter-spacing:-.01em}
+.success-state p{font-size:13px;color:rgba(247,243,238,.4);font-weight:300}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}.form-field-row{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid rgba(247,243,238,.08);padding:28px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,243,238,.4)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:11px;color:rgba(247,243,238,.25);text-decoration:none;letter-spacing:.04em;transition:color .2s;font-weight:300}
+.footer-links a:hover{color:rgba(247,243,238,.6)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Forma</div>
+  <div class="nav-links">
+    <a href="#about">О нас</a>
+    <a href="#services">Услуги</a>
+    <a href="#products">Изделия</a>
+    <a href="#packages">Пакеты</a>
+    <a href="#contact">Контакт</a>
+  </div>
+  <div class="nav-contact"><a href="#">Telegram →</a></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Продуктовое агентство · Полный цикл</div>
+    <h1 class="hero-title">
+      FORMA
+      <em>изделие,<br>не мерч</em>
+    </h1>
+    <p class="hero-desc">Внешний продакт-директор для fashion-брендов. От стратегии ассортимента до готового изделия на полке.</p>
+    <a href="#contact" class="hero-cta">Обсудить проект</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-main">
+      <span class="photo-label">Производство</span>
+    </div>
+    <div class="hero-photo-sm">
+      <span class="photo-label">Образец</span>
+    </div>
+    <div class="hero-counter">1 — 6</div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-label">О нас</div>
+    <div class="about-grid">
+      <div class="about-left">
+        <p>FORMA — это <strong>внешний продакт-директор</strong> для брендов, которым нужен продукт. Мы берём задачу и доводим до результата: разработано, произведено, готово к продаже.</p>
+      </div>
+      <div class="about-right">
+        <p>Большинство малых и средних fashion-брендов не могут позволить себе штатного продакт-менеджера — поиск занимает 3–4 месяца, зарплата от 150 тысяч в месяц, и нет гарантий что человек останется.</p>
+        <p>Мы работаем как тот же специалист, но без найма и рисков: ведём ассортиментную стратегию, разрабатываем новые модели, контролируем производство и выводим изделие на рынок. Производственная база — Россия, Китай, Киргизия.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-label">Услуги</div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-photo">
+          <span class="photo-label">Коллекция</span>
+        </div>
+        <div class="service-body">
+          <div class="service-num">01/</div>
+          <div class="service-title">Fashion-бренды</div>
+          <p class="service-desc">Продуктовая подписка для малых и средних брендов. Ведём полный цикл разработки новых изделий: стратегия ассортимента, дизайн, конструктив, производство, контент.</p>
+          <a href="#contact" class="service-btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-photo p2">
+          <span class="photo-label">Артефакт</span>
+        </div>
+        <div class="service-body">
+          <div class="service-num">02/</div>
+          <div class="service-title">Корпоративный артефакт</div>
+          <p class="service-desc">Именные изделия к событиям компании: юбилею, раунду инвестиций, новому офису. Varsity jacket, рубашки с вышивкой, монограммные жакеты. Не мерч — объект с историей.</p>
+          <a href="#contact" class="service-btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-photo p3">
+          <span class="photo-label">Кашемир</span>
+        </div>
+        <div class="service-body">
+          <div class="service-num">03/</div>
+          <div class="service-title">Премиальный текстиль</div>
+          <p class="service-desc">Кашемировые пледы и накидки с монограммой для VIP-подарков. Застройщики, private banking, личные подарки руководителей. 100% кашемир Grade A, именная упаковка.</p>
+          <a href="#contact" class="service-btn">Подробнее</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="sec-label">Изделия</div>
+    <div class="products-intro">
+      <p>Здесь будут представлены изделия, созданные командой FORMA — реальные кейсы разработки от концепции до готового продукта.</p>
+      <p>Каждое изделие — это пройденный цикл: анализ аудитории, дизайн, конструктив, производство, фотосъёмка. Кейсы добавляются по мере завершения проектов.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-photo"></div>
+        <div class="product-info">
+          <div class="product-tag">Женская одежда</div>
+          <div class="product-name">Льняной жакет</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo v2"></div>
+        <div class="product-info">
+          <div class="product-tag">Трикотаж</div>
+          <div class="product-name">Кашемировая накидка</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo v3"></div>
+        <div class="product-info">
+          <div class="product-tag">Корпоратив</div>
+          <div class="product-name">Varsity jacket</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo v4"></div>
+        <div class="product-info">
+          <div class="product-tag">Женская одежда</div>
+          <div class="product-name">Вискозное платье</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo v5"></div>
+        <div class="product-info">
+          <div class="product-tag">Текстиль</div>
+          <div class="product-name">Плед с монограммой</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo v6"></div>
+        <div class="product-info">
+          <div class="product-tag">Трикотаж</div>
+          <div class="product-name">Льняной костюм</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo"></div>
+        <div class="product-info">
+          <div class="product-tag">Корпоратив</div>
+          <div class="product-name">Именная рубашка</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo v2"></div>
+        <div class="product-info">
+          <div class="product-tag">Женская одежда</div>
+          <div class="product-name">Поло-лонгслив</div>
+        </div>
+      </div>
+    </div>
+    <div class="products-note">Фотографии изделий появятся после завершения первых проектов</div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PACKAGES — table style -->
+<section class="packages" id="packages">
+  <div class="wrap">
+    <div class="sec-label">Пакеты</div>
+    <div class="pkg-table">
+      <div class="pkg-row header">
+        <div class="pkg-col-label">Формат</div>
+        <div class="pkg-col-label">Описание</div>
+        <div class="pkg-col-label">Стоимость</div>
+        <div class="pkg-col-label"></div>
+      </div>
+      <div class="pkg-row" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <div class="pkg-name">Аудит</div>
+        <div class="pkg-desc">Анализ текущего ассортимента и продаж. Ассортиментная матрица на следующий сезон. Письменный отчёт и встреча по итогам. Разовый проект за 2–3 недели.</div>
+        <div><div class="pkg-price">от 50 000 ₽</div><div class="pkg-period">разовый проект</div></div>
+        <div class="pkg-action"><a href="#contact">Выбрать →</a></div>
+      </div>
+      <div class="pkg-row featured" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <div class="pkg-name">Подписка ★</div>
+        <div class="pkg-desc">Постоянный продакт-директор на аутсорсе. Ведение разработки новых моделей, производственной цепочки, контент. Еженедельные отчёты. Минимум 3 месяца.</div>
+        <div><div class="pkg-price">от 90 000 ₽</div><div class="pkg-period">в месяц</div></div>
+        <div class="pkg-action"><a href="#contact">Выбрать →</a></div>
+      </div>
+      <div class="pkg-row" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <div class="pkg-name">Коллекция</div>
+        <div class="pkg-desc">Одна капсула под ключ: концепция, дизайн, конструктив, производство, контент. Конкретный scope и фиксированная цена. Срок 6–10 недель.</div>
+        <div><div class="pkg-price">от 120 000 ₽</div><div class="pkg-period">за проект</div></div>
+        <div class="pkg-action"><a href="#contact">Выбрать →</a></div>
+      </div>
+      <div class="pkg-row" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <div class="pkg-name">Артефакт</div>
+        <div class="pkg-desc">Лимитированные именные изделия для корпоративных событий. Воркшоп с командой, разработка концепции, производство, упаковка. Минимум 20 изделий.</div>
+        <div><div class="pkg-price">от 200 000 ₽</div><div class="pkg-period">за проект</div></div>
+        <div class="pkg-action"><a href="#contact">Выбрать →</a></div>
+      </div>
+      <div class="pkg-row" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <div class="pkg-name">Текстиль</div>
+        <div class="pkg-desc">Кашемировые пледы и накидки с персонализацией для VIP-подарков. Разработка дизайна, подбор пряжи, производство, именная упаковка. Минимум 10 изделий.</div>
+        <div><div class="pkg-price">от 18 000 ₽</div><div class="pkg-period">за изделие</div></div>
+        <div class="pkg-action"><a href="#contact">Выбрать →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-label">Контакт</div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p>Оставьте заявку — ответим в тот же день. Первый разговор 30 минут, без обязательств.</p>
+        <div class="contact-promise">
+          <span>— Отвечаем в рабочий день</span>
+          <span>— Если задача не наша — честно скажем</span>
+          <span>— Первый разговор всегда бесплатный</span>
+        </div>
+      </div>
+      <div>
+        <div id="formWrap">
+          <form onsubmit="handleForm(event)">
+            <div class="form-field-row">
+              <div class="form-field">
+                <label>Имя</label>
+                <input type="text" placeholder="Алёна" required>
+              </div>
+              <div class="form-field">
+                <label>Бренд или компания</label>
+                <input type="text" placeholder="Название" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Формат</label>
+              <select required>
+                <option value="" disabled selected>Выберите</option>
+                <option>Продуктовая подписка</option>
+                <option>Аудит ассортимента</option>
+                <option>Коллекция под ключ</option>
+                <option>Корпоративный артефакт</option>
+                <option>Премиальный текстиль</option>
+                <option>Пока не знаю</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Telegram или телефон</label>
+              <input type="text" placeholder="@username или +7..." required>
+            </div>
+            <div class="form-field">
+              <label>О задаче</label>
+              <textarea placeholder="Что хотите создать, к какому сроку"></textarea>
+            </div>
+            <button type="submit" class="submit">Отправить заявку</button>
+            <div class="form-note">Данные не передаются третьим лицам</div>
+          </form>
+        </div>
+        <div class="success-state" id="successMsg">
+          <div class="success-glyph">✦</div>
+          <h3>Заявка получена</h3>
+          <p>Свяжемся с вами сегодня.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Forma</div>
+  <div class="footer-links">
+    <a href="#">Telegram</a>
+    <a href="#">Instagram</a>
+    <a href="mailto:hello@forma.agency">hello@forma.agency</a>
+  </div>
+</footer>
+
+<script>
+function handleForm(e){
+  e.preventDefault();
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('successMsg').classList.add('on');
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
