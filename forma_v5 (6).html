@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORMA — Продуктовое агентство</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F8F5F0;
+  --bg2:#EFEBE3;
+  --bg3:#E8E2D9;
+  --ink:#1A1815;
+  --ink-mid:#6A6560;
+  --ink-light:#A8A49E;
+  --rule:rgba(26,24,21,.09);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:13px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* TOP BAR */
+.topbar{background:var(--ink);padding:8px 5%;display:flex;justify-content:space-between;align-items:center}
+.topbar-links{display:flex;gap:16px}
+.topbar-links a{font-size:10px;color:rgba(248,245,240,.4);text-decoration:none;letter-spacing:.12em;font-weight:300;transition:color .2s}
+.topbar-links a:hover{color:rgba(248,245,240,.8)}
+.topbar-tag{font-size:10px;color:rgba(248,245,240,.3);letter-spacing:.16em;text-transform:uppercase;font-weight:200}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;border-bottom:1px solid var(--rule)}
+.nav-logo{font-family:var(--serif);font-size:18px;font-weight:400;letter-spacing:.18em;color:var(--ink);text-transform:uppercase}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:11px;font-weight:300;color:var(--ink-mid);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:10px;font-weight:400;color:var(--ink);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);padding:9px 20px;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--ink);color:var(--bg)}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;position:relative}
+.hero-photo-col{position:relative;overflow:hidden}
+.hero-photo{position:absolute;inset:0;background:var(--bg3);display:flex;align-items:flex-end;padding:24px}
+.hero-photo-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,24,21,.35);font-weight:300}
+.hero-badge{position:absolute;top:32px;left:24px;border:1px solid rgba(26,24,21,.2);padding:8px 16px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mid);font-weight:300}
+.hero-text-col{padding:60px 5% 60px 48px;display:flex;flex-direction:column;justify-content:center}
+.hero-eyebrow{font-size:9px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-light);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--ink-light)}
+.hero-h1{font-family:var(--serif);font-size:clamp(40px,5vw,68px);line-height:1.08;margin-bottom:28px}
+.hero-h1 .light{font-weight:400;font-style:italic;color:var(--ink-mid)}
+.hero-h1 .bold{font-weight:700;color:var(--ink)}
+.hero-desc{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.85;max-width:380px;margin-bottom:40px}
+.hero-desc strong{color:var(--ink);font-weight:400}
+.hero-actions{display:flex;gap:16px;align-items:center}
+.btn-outline{border:1px solid var(--ink);padding:13px 28px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:400;color:var(--ink);text-decoration:none;transition:all .2s}
+.btn-outline:hover{background:var(--ink);color:var(--bg)}
+.btn-text{font-size:11px;font-weight:300;color:var(--ink-light);letter-spacing:.08em;text-decoration:none;transition:color .2s}
+.btn-text:hover{color:var(--ink)}
+.hero-scroll{position:absolute;bottom:32px;right:5%;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);font-weight:300;display:flex;align-items:center;gap:8px}
+.hero-scroll::after{content:'';width:24px;height:1px;background:var(--ink-light)}
+@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:auto}.hero-photo-col{height:50vw}.hero-photo{position:relative}.hero-text-col{padding:40px 5%}}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--ink);padding:14px 0;overflow:hidden}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 22s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-item{display:inline-flex;align-items:center;gap:20px;padding:0 20px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,245,240,.5);font-weight:300;font-family:var(--sans)}
+.marquee-dot{width:3px;height:3px;border-radius:50%;background:rgba(248,245,240,.25)}
+
+/* SECTION BASE */
+section{padding:80px 5%}
+.wrap{max-width:1100px;margin:0 auto}
+
+/* QUOTE */
+.quote-sec{background:var(--bg);padding:80px 5%}
+.quote-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
+.quote-left{}
+.quote-mark{font-family:var(--serif);font-size:120px;line-height:.5;color:var(--bg3);margin-bottom:16px;font-weight:400;display:block}
+.quote-text{font-family:var(--serif);font-size:clamp(20px,2.8vw,32px);font-weight:400;line-height:1.45;color:var(--ink);margin-bottom:20px}
+.quote-text em{font-style:italic;color:var(--ink-mid)}
+.quote-source{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);font-weight:300;display:flex;align-items:center;gap:10px}
+.quote-source::before{content:'';width:24px;height:1px;background:var(--ink-light)}
+.quote-right{position:relative}
+.quote-photo{width:100%;height:360px;background:var(--bg3);position:relative;overflow:hidden}
+.quote-photo-badge{position:absolute;bottom:16px;right:16px;background:rgba(248,245,240,.9);padding:8px 14px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mid);font-weight:300}
+@media(max-width:768px){.quote-inner{grid-template-columns:1fr}}
+
+/* TREND ERRORS */
+.errors-sec{background:var(--bg2);padding:80px 5%}
+.errors-wrap{max-width:1100px;margin:0 auto}
+.errors-eyebrow{font-size:10px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-light);margin-bottom:12px}
+.errors-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.15;color:var(--ink);margin-bottom:48px}
+.errors-title em{font-style:italic;color:var(--ink-mid)}
+.errors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.errors-grid .err-card:first-child{grid-column:1 / -1}
+.errors-grid .err-card:nth-child(2){grid-column:span 1}
+.errors-grid .err-card:nth-child(3){grid-column:span 2}
+.err-card{background:var(--bg);padding:28px 28px 32px;border:1px solid var(--rule)}
+.err-card.err-dark{background:var(--ink);border-color:var(--ink)}
+.err-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-light);font-weight:300;margin-bottom:12px}
+.err-dark .err-label{color:rgba(248,245,240,.35)}
+.err-heading{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.err-dark .err-heading{color:var(--bg)}
+.err-desc{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.75}
+.err-dark .err-desc{color:rgba(248,245,240,.6)}
+@media(max-width:768px){.errors-grid{grid-template-columns:1fr}.errors-grid .err-card:first-child{grid-column:auto}}
+
+/* WHAT WE DO — 5 column table */
+.what{background:var(--bg2);padding:80px 5%}
+.what-eyebrow{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.what-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:48px}
+.what-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.what-desc{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.8;margin-top:16px}
+.what-quote{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);font-style:italic;font-weight:400;color:var(--ink-mid);line-height:1.45;border-left:2px solid var(--ink-light);padding-left:24px}
+.what-table{background:var(--bg);border-radius:4px;padding:40px 32px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr;gap:0;align-items:start}
+.what-col{padding:0 20px}
+.what-col:first-child{padding-left:0}
+.what-col:last-child{padding-right:0}
+.what-col-num{font-family:var(--serif);font-size:64px;font-weight:400;color:rgba(26,24,21,.08);line-height:1;margin-bottom:16px}
+.what-col-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:14px;letter-spacing:.01em}
+.what-col-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.what-col-list li{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.5;padding-left:10px;position:relative}
+.what-col-list li::before{content:'·';position:absolute;left:0;color:var(--ink-light)}
+.what-col-arrow{color:var(--ink-light);font-size:14px;padding-top:80px;opacity:.4;align-self:start}
+@media(max-width:960px){.what-table{grid-template-columns:1fr 1fr}.what-col-arrow{display:none}.what-col{padding:20px;border-bottom:1px solid var(--rule)}.what-top{grid-template-columns:1fr}}
+@media(max-width:600px){.what-table{grid-template-columns:1fr}}
+
+/* PACKAGES */
+.packages{background:var(--bg);padding:80px 5%}
+.pkg-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px}
+.pkg-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:400;line-height:1.1;color:var(--ink)}
+.pkg-title em{font-style:italic;color:var(--ink-mid)}
+.pkg-intro{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.8}
+.pkg-table{border-top:1px solid var(--rule);max-width:1100px;margin:0 auto}
+.pkg-row{display:grid;grid-template-columns:180px 1fr 140px 120px;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--rule);transition:background .15s}
+.pkg-row:hover{background:rgba(26,24,21,.02)}
+.pkg-row.hd{padding:10px 0;cursor:default}
+.pkg-row.hd:hover{background:none}
+.pkg-col-h{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);font-weight:300}
+.pkg-name{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink)}
+.pkg-name.featured{font-style:italic}
+.pkg-desc{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.7}
+.pkg-price{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink)}
+.pkg-per{font-size:10px;color:var(--ink-light);font-weight:300;letter-spacing:.06em}
+.pkg-btn a{display:inline-block;border:1px solid rgba(26,24,21,.3);padding:8px 18px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:all .2s}
+.pkg-btn a:hover{background:var(--ink);color:var(--bg)}
+@media(max-width:768px){.pkg-row{grid-template-columns:1fr 1fr}.pkg-col-h:nth-child(3),.pkg-col-h:nth-child(4){display:none}.pkg-desc{display:none}.pkg-header{grid-template-columns:1fr}}
+
+/* CASES */
+.cases-sec{background:var(--bg2);padding:80px 5%}
+.cases-eyebrow{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:16px}
+.cases-header{margin-bottom:48px}
+.cases-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:8px}
+.cases-title em{font-style:italic;color:var(--ink-mid)}
+.cases-sub{font-size:13px;font-weight:300;color:var(--ink-light)}
+.case-card{background:var(--bg);border-radius:4px;padding:36px;margin-bottom:16px}
+.case-card:last-child{margin-bottom:0}
+.case-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);flex-wrap:wrap;gap:16px}
+.case-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);font-weight:300}
+.case-meta-row{display:flex;gap:32px}
+.case-stat-n{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);line-height:1}
+.case-stat-l{font-size:10px;letter-spacing:.08em;color:var(--ink-light);font-weight:300;margin-top:3px}
+.case-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.case-title{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:4px;line-height:1.3}
+.case-type{font-size:11px;letter-spacing:.08em;color:var(--ink-light);font-weight:300;margin-bottom:20px;text-transform:uppercase}
+.case-block{margin-bottom:16px}
+.case-block-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-light);font-weight:300;margin-bottom:5px}
+.case-block-text{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.75}
+.case-photo-grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.case-photo-grid-6 .case-photo{aspect-ratio:3/4;border-radius:4px;background-size:cover;background-position:center}
+.case-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;height:280px}
+.case-photo{background:var(--ph);border-radius:4px;position:relative;overflow:hidden}
+.case-photo.v2{background:var(--ph2)}
+.case-photo.v3{background:var(--ph3)}
+.case-photo.v4{background:#C8B9A8}
+.case-ph-label{position:absolute;bottom:10px;left:12px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,24,21,.3);font-weight:300}
+@media(max-width:768px){.case-body{grid-template-columns:1fr}.case-meta-row{flex-wrap:wrap;gap:16px}}
+
+/* WHO */
+.who{background:var(--bg2);padding:80px 5%}
+.who-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;color:var(--ink);margin-bottom:8px;max-width:1100px;margin-left:auto;margin-right:auto}
+.who-title em{font-style:italic;color:var(--ink-mid)}
+.who-sub{font-size:12px;font-weight:300;color:var(--ink-light);margin-bottom:48px;max-width:1100px;margin-left:auto;margin-right:auto}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:1100px;margin:0 auto}
+.who-col{background:var(--bg);padding:36px 32px}
+.who-col.dark{background:var(--ink)}
+.who-col-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;font-weight:400}
+.who-col.dark .who-col-label{color:rgba(248,245,240,.35)}
+.who-col-label{color:var(--ink-light)}
+.who-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:13px;font-weight:300;line-height:1.6}
+.who-col.dark .who-item{color:rgba(248,245,240,.65)}
+.who-col .who-item{color:var(--ink-mid)}
+.who-icon{font-size:11px;flex-shrink:0;margin-top:3px}
+@media(max-width:600px){.who-grid{grid-template-columns:1fr}}
+
+/* VS */
+.vs{background:var(--bg);padding:80px 5%}
+.vs-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;max-width:1100px;margin-left:auto;margin-right:auto}
+.vs-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.15;color:var(--ink)}
+.vs-title em{font-style:italic;color:var(--ink-mid)}
+.vs-note{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.8}
+.vs-table{max-width:1100px;margin:0 auto;border:1px solid var(--rule);overflow:hidden}
+.vr{display:grid;grid-template-columns:1.6fr 1fr 1fr;border-bottom:1px solid var(--rule)}
+.vr:last-child{border-bottom:none}
+.vr.vh{background:var(--ink)}
+.vc{padding:14px 20px;font-size:12px;font-weight:300}
+.vr.vh .vc{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,245,240,.35);padding:12px 20px;font-weight:300}
+.vr.vh .vc:last-child{color:rgba(248,245,240,.7)}
+.vr:nth-child(even):not(.vh){background:var(--bg2)}
+.vc.bad{color:var(--ink-light)}
+.vc.good{color:var(--ink);font-weight:400}
+.vr.vtotal{background:var(--bg2)}
+.vr.vtotal .vc{font-family:var(--serif);font-size:17px;font-weight:400;padding:18px 20px}
+.vr.vtotal .vc:last-child{color:var(--ink)}
+@media(max-width:600px){.vc{padding:10px 12px;font-size:11px}}
+
+/* FAQ */
+.faq{background:var(--bg2);padding:80px 5%}
+.faq-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;max-width:1100px;margin-left:auto;margin-right:auto}
+.faq-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.1;color:var(--ink)}
+.faq-title em{font-style:italic;color:var(--ink-mid)}
+.faq-intro{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.8}
+.faq-list{max-width:1100px;margin:0 auto;border-top:1px solid var(--rule)}
+.faq-item{border-bottom:1px solid var(--rule)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:22px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:400;color:var(--ink);gap:16px;letter-spacing:.01em}
+.faq-arrow{font-size:18px;color:var(--ink-light);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a-inner{padding:0 0 20px;font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.8;max-width:720px}
+.faq-a-inner strong{color:var(--ink);font-weight:400}
+
+/* CTA BLOCK */
+.cta-block{background:var(--bg);padding:80px 5%;position:relative;overflow:hidden}
+.cta-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1100px;margin:0 auto;position:relative}
+.cta-photo-bg{position:absolute;right:0;top:0;bottom:0;width:42%;background:var(--bg3)}
+.cta-text-wrap{background:var(--bg2);padding:56px 48px;position:relative;z-index:1;margin-right:-20px}
+.cta-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-light);font-weight:300;margin-bottom:20px}
+.cta-heading{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.15;color:var(--ink);margin-bottom:16px}
+.cta-heading em{font-style:italic;color:var(--ink-mid)}
+.cta-desc{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.8;margin-bottom:32px}
+.cta-form{display:flex;gap:0}
+.cta-form input{flex:1;background:var(--bg);border:1px solid var(--rule);border-right:none;padding:13px 18px;font-family:var(--sans);font-size:13px;font-weight:300;color:var(--ink);outline:none}
+.cta-form input::placeholder{color:var(--ink-light)}
+.cta-form button{background:var(--ink);color:var(--bg);border:none;padding:13px 24px;font-family:var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;cursor:pointer;white-space:nowrap;transition:opacity .2s}
+.cta-form button:hover{opacity:.8}
+@media(max-width:768px){.cta-inner{grid-template-columns:1fr}.cta-photo-bg{display:none}.cta-text-wrap{margin-right:0;padding:36px 24px}.cta-form{flex-direction:column}.cta-form input{border-right:1px solid var(--rule);border-bottom:none}}
+
+/* FOOTER NAV */
+.footer-nav{background:var(--bg);border-top:1px solid var(--rule);padding:20px 5%}
+.footer-nav-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-nav-links{display:flex;gap:24px}
+.footer-nav-links a{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;font-weight:300;transition:color .2s}
+.footer-nav-links a:hover{color:var(--ink)}
+.footer-social{display:flex;gap:16px}
+.footer-social a{font-size:10px;letter-spacing:.1em;color:var(--ink-light);text-decoration:none;font-weight:300;transition:color .2s}
+.footer-social a:hover{color:var(--ink)}
+
+/* INSTA GRID */
+.insta-grid{background:var(--bg2);padding:0}
+.insta-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center}
+.insta-label{padding:32px 40px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--serif);font-size:15px;font-style:italic;font-weight:400;color:var(--ink-mid);border-right:1px solid var(--rule)}
+.insta-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.insta-photo{aspect-ratio:1;background:var(--bg3)}
+.insta-photo:nth-child(2){background:var(--bg2)}
+.insta-photo:nth-child(3){background:#E0D8CE}
+.insta-photo:nth-child(4){background:#D8D0C6}
+.insta-photo:nth-child(5){background:#DDD5CB}
+.insta-signup{padding:32px 40px;border-left:1px solid var(--rule);text-align:center;min-width:160px}
+.insta-signup-title{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:400;margin-bottom:4px}
+.insta-signup-sub{font-size:9px;letter-spacing:.1em;color:var(--ink-light);font-weight:300;margin-bottom:16px}
+.insta-signup-arrow{font-size:18px;color:var(--ink-light)}
+@media(max-width:768px){.insta-inner{grid-template-columns:1fr}.insta-label,.insta-signup{display:none}.insta-photos{grid-template-columns:repeat(3,1fr)}}
+
+/* FOOTER BOTTOM */
+footer{background:var(--bg);border-top:1px solid var(--rule);padding:16px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+footer p{font-size:10px;color:var(--ink-light);font-weight:200;letter-spacing:.06em}
+footer a{font-size:10px;color:var(--ink-light);text-decoration:none;font-weight:200;letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-links">
+    <a href="#">Telegram</a>
+    <a href="#">Instagram</a>
+  </div>
+  <div class="topbar-tag">Продуктовое агентство полного цикла</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Forma</div>
+  <div class="nav-links">
+    <a href="#what">Услуги</a>
+    <a href="#packages">Пакеты</a>
+    <a href="#who">Кому</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#apply" class="nav-cta">Обсудить проект</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-photo-col">
+    <div class="hero-photo">
+      <div class="hero-photo-label">Производство · Разработка</div>
+    </div>
+    <div class="hero-badge">Продуктовый партнёр</div>
+  </div>
+  <div class="hero-text-col">
+    <div class="hero-eyebrow">Fashion Product Agency</div>
+    <h1 class="hero-h1">
+      <span class="light">Вы занимаетесь бизнесом —<br></span>
+      <span class="bold">мы занимаемся продуктом.</span>
+    </h1>
+    <p class="hero-desc">FORMA — <strong>внешний продакт-директор</strong> для fashion-брендов. Берём задачу по развитию ассортимента и доводим до результата. От аналитики трендов до отгрузки на ваш склад. Быстрее, чем своя команда, дешевле, чем нанимать штат.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn-outline">Обсудить проект</a>
+      <a href="#what" class="btn-text">Как это работает →</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Листать вниз</div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Внешний Продакт-директор <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fashion Бренды <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Полный цикл: от идеи до изделия на полке <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Внешний Продакт-директор <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fashion Бренды <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Полный цикл: от идеи до изделия на полке <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Внешний Продакт-директор <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fashion Бренды <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Полный цикл: от идеи до изделия на полке <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-sec">
+  <div class="quote-inner">
+    <div class="quote-left">
+      <span class="quote-mark">"</span>
+      <div class="quote-text">Я понимаю что делать, но не успеваю. Продукт придумываю я, производство веду я, образцы принимаю я. А ещё продажи, команда, маркетинг. <em>Где-то в этом и теряется рост.</em></div>
+      <div class="quote-source">Типичный запрос от основателя бренда 3–7 лет</div>
+    </div>
+    <div class="quote-right">
+      <div class="quote-photo">
+        <div class="quote-photo-badge">Так бывает у всех</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TREND ERRORS -->
+<div class="errors-sec">
+  <div class="errors-wrap">
+    <div class="errors-eyebrow">Почему запуски не окупаются</div>
+    <h2 class="errors-title">7 из 10 запусков одежды<br><em>теряют деньги на этих ошибках</em></h2>
+    <div class="errors-grid">
+      <div class="err-card err-dark">
+        <div class="err-label">— Самая частая</div>
+        <div class="err-heading">«Опоздание в сезон»</div>
+        <p class="err-desc">Пока селлер координирует дизайнера, конструктора, цех и логистику — пик спроса проходит. Цикл «идея → партия» растягивается на 4–6 месяцев, и товар приезжает на склад, когда его уже никто не ищет. Мы сокращаем этот путь — вы выходите на маркетплейс ровно тогда, когда покупатель готов купить.</p>
+      </div>
+      <div class="err-card">
+        <div class="err-label">— Тренд-аналитика</div>
+        <div class="err-heading">«Уже не носят»</div>
+        <p class="err-desc">Модель была в топе вчера, а сегодня её не ищут. Мы даём опережающую аналитику и видим тренд до его пика.</p>
+      </div>
+      <div class="err-card">
+        <div class="err-label">— Ценовое позиционирование</div>
+        <div class="err-heading">«Демпинг вместо отстройки»</div>
+        <p class="err-desc">Скопировали хит конкурента, но рынок уже насыщен. Мы выводим продукт с уникальным позиционированием — по дизайну, посадке или материалу — который не нужно сравнивать с конкурентами по цене. Покупатель платит больше, потому что видит разницу.</p>
+      </div>
+      <div class="err-card">
+        <div class="err-label">— Коммерческий запрос</div>
+        <div class="err-heading">«Красиво, но не продаётся»</div>
+        <p class="err-desc">Дизайн хорош, но не попал в коммерческий запрос. Мы соединяем эстетику с реальным спросом рынка и ценовым сегментом.</p>
+      </div>
+      <div class="err-card">
+        <div class="err-label">— Цветовой прогноз</div>
+        <div class="err-heading">«Случайный цвет и фактура»</div>
+        <p class="err-desc">Закупили зелёный, а сезон требует голубой. Мы подбираем ткань и цвета строго под тренд-вектор, зафиксированный в аналитике.</p>
+      </div>
+      <div class="err-card">
+        <div class="err-label">— Конструктив</div>
+        <div class="err-heading">«На фото — идеально, вживую — не садится»</div>
+        <p class="err-desc">Вещь выглядит в карточке товара отлично, но на реальной фигуре сидит плохо. Возвраты и низкий выкуп. Мы конструируем лекала с учётом реальной антропометрии и тестируем образцы на разных типах фигур до запуска в тираж.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<div class="what" id="what">
+  <div class="wrap">
+    <div class="what-eyebrow">— Что мы делаем</div>
+    <div class="what-top">
+      <div class="what-top-left">
+        <h2 class="what-title">Полный продуктовый<br>цикл — под ключ</h2>
+        <p class="what-desc">Мы входим туда, где у вас заканчивается ресурс, и ведём разработку до готового изделия. Вы принимаете ключевые решения — мы делаем всё остальное.</p>
+      </div>
+      <div class="what-top-right">
+        <div class="what-quote">«Вы занимаетесь брендом и продажами — мы занимаемся тем, что лежит на вашей полке»</div>
+      </div>
+    </div>
+    <div class="what-table">
+      <div class="what-col">
+        <div class="what-col-num">1</div>
+        <div class="what-col-title">Стратегия ассортимента</div>
+        <ul class="what-col-list">
+          <li>Анализ текущих продаж</li>
+          <li>Анализ остатков и стоков</li>
+          <li>Ассортиментная матрица на сезон</li>
+          <li>Тренд-адаптация под ДНК бренда</li>
+          <li>Определение hero pieces</li>
+        </ul>
+      </div>
+      <div class="what-col-arrow">→</div>
+      <div class="what-col">
+        <div class="what-col-num">2</div>
+        <div class="what-col-title">Дизайн и разработка</div>
+        <ul class="what-col-list">
+          <li>Концепция коллекции</li>
+          <li>Создание мудборда и его утверждение</li>
+          <li>Технические задания</li>
+          <li>Подбор тканей и фурнитуры</li>
+          <li>Работа с конструктором</li>
+          <li>Подготовка лекал и отработка образцов (примерки и обратная связь от фокус-группы)</li>
+        </ul>
+      </div>
+      <div class="what-col-arrow">→</div>
+      <div class="what-col">
+        <div class="what-col-num">3</div>
+        <div class="what-col-title">Производство</div>
+        <ul class="what-col-list">
+          <li>Выбор фабрики под задачу</li>
+          <li>Согласование партии и оформление юридической документации</li>
+          <li>Запуск и контроль образца</li>
+          <li>Примерка и корректировки</li>
+          <li>Запуск тиража</li>
+          <li>Промежуточный контроль пошива</li>
+          <li>Финальный контроль качества партии</li>
+        </ul>
+      </div>
+      <div class="what-col-arrow">→</div>
+      <div class="what-col">
+        <div class="what-col-num">4</div>
+        <div class="what-col-title">Контент</div>
+        <ul class="what-col-list">
+          <li>Подбор модели и продакшн студии для съёмки</li>
+          <li>ТЗ на съёмку в стилистике бренда</li>
+          <li>Тексты для карточек товаров</li>
+          <li>Контент-стратегия по новинкам</li>
+          <li>Генерация продающего контента через ИИ для социальных сетей</li>
+          <li>Организация лайф-стайл съёмки</li>
+          <li>Фотоотзывы</li>
+        </ul>
+      </div>
+      <div class="what-col-arrow">→</div>
+      <div class="what-col">
+        <div class="what-col-num">5</div>
+        <div class="what-col-title">Аналитика</div>
+        <ul class="what-col-list">
+          <li>Мониторинг продаж новинок</li>
+          <li>Оценка результата сезона</li>
+          <li>Корректировка матрицы</li>
+          <li>Рекомендации по остаткам</li>
+          <li>Планирование следующего цикла</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<div class="packages" id="packages">
+  <div class="wrap">
+    <div class="pkg-header">
+      <div class="pkg-title">Три формата<br><em>под разный этап</em></div>
+      <div class="pkg-intro">Начинаем с того уровня, который нужен сейчас. Масштабируем по мере роста.</div>
+    </div>
+    <div class="pkg-table">
+      <div class="pkg-row hd">
+        <div class="pkg-col-h">Пакет</div>
+        <div class="pkg-col-h">Что входит</div>
+        <div class="pkg-col-h">Стоимость</div>
+        <div class="pkg-col-h"></div>
+      </div>
+      <div class="pkg-row">
+        <div><div class="pkg-name">Консультация</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Разовая</div></div>
+        <div class="pkg-desc">Знакомство с брендом, краткий анализ ассортимента и продаж. Рекомендации по ассортиментной матрице и выявление точек роста.</div>
+        <div><div class="pkg-price">Бесплатно</div><div class="pkg-per">&nbsp;</div></div>
+        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+      </div>
+      <div class="pkg-row">
+        <div><div class="pkg-name">Тренд-аналитика</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Разовый проект</div></div>
+        <div class="pkg-desc">Тренд-разбор ниши на сезон, 5–10 актуальных моделей с референсами, рекомендации по выбору актуальных тканей, цветов и принтов.</div>
+        <div><div class="pkg-price">10 000 ₽</div><div class="pkg-per">за отчёт</div></div>
+        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+      </div>
+      <div class="pkg-row">
+        <div><div class="pkg-name">Продукт</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Разовый проект</div></div>
+        <div class="pkg-desc">Разработка лекал и их градация. Пошив промежуточных и эталонного образцов. Примерка и корректировка. ТЗ и конфекционная карта для производства. Стоимость доп. услуг рассчитывается отдельно.</div>
+        <div><div class="pkg-price">от 20 000 ₽</div><div class="pkg-per">за артикул</div></div>
+        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+      </div>
+      <div class="pkg-row">
+        <div><div class="pkg-name featured">Подписка ★</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Ежемесячно · от 3 мес.</div></div>
+        <div class="pkg-desc">Постоянный продакт-директор на аутсорсе. Ведение разработки новых моделей, производственной цепочки, контент. Еженедельные отчёты, оперативная связь. Всё как штатный — без найма.</div>
+        <div><div class="pkg-price">от 90 000 ₽</div><div class="pkg-per">в месяц</div></div>
+        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+      </div>
+      <div class="pkg-row">
+        <div><div class="pkg-name">Коллекция</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Проект</div></div>
+        <div class="pkg-desc">Одна капсула под ключ. Концепция, дизайн, конструктив, выбор фабрики, образец, тираж, ТЗ на контент. Фиксированный scope и цена — без сюрпризов в конце.</div>
+        <div><div class="pkg-price">от 200 000 ₽</div><div class="pkg-per">за проект</div></div>
+        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASES -->
+<div class="cases-sec" id="cases">
+  <div class="wrap">
+    <div class="cases-eyebrow">— Наши запуски</div>
+    <div class="cases-header">
+      <h2 class="cases-title">Запуски, где тренд, производство<br><em>и контент сработали вместе</em></h2>
+      <p class="cases-sub">Реальные проекты — от задачи до результата на складе.</p>
+    </div>
+
+    <!-- CASE 1 -->
+    <div class="case-card">
+      <div class="case-top">
+        <div class="case-label">Кейс 1</div>
+        <div class="case-meta-row">
+          <div class="case-stat"><div class="case-stat-n">750 ед.</div><div class="case-stat-l">партия на складе</div></div>
+          <div class="case-stat"><div class="case-stat-n">10 нед.</div><div class="case-stat-l">от старта до склада</div></div>
+          <div class="case-stat"><div class="case-stat-n">AW</div><div class="case-stat-l">коллекция осень-зима</div></div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-info">
+          <div class="case-title">Трикотажная коллекция осень-зима из Китая</div>
+          <div class="case-type">Разработка по ТЗ + фабрика в Китае</div>
+          <div class="case-block">
+            <div class="case-block-label">Задача</div>
+            <p class="case-block-text">Быстро войти в нишу трикотажа с хорошей себестоимостью и максимальным качеством.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-block-label">Решение</div>
+            <p class="case-block-text">Проанализировали тренды, разработали модели с китайской фабрикой по чёткому ТЗ с акцентом на актуальные цвета и тренд «тихая роскошь», оперативно согласовали образцы, произвели в короткие сроки партию и сняли продающий контент.</p>
+          </div>
+        </div>
+        <div class="case-photos">
+          <div class="case-photo-grid-6">
+            <div class="case-photo" style="background-image:url('https://raw.githubusercontent.com/forma-product/FORMA/main/%D0%BA%D0%B5%D0%B9%D1%811-%D1%84%D0%BE%D1%821.jpg');background-size:cover;background-position:center"></div>
+            <div class="case-photo" style="background-image:url('https://raw.githubusercontent.com/forma-product/FORMA/main/%D0%BA%D0%B5%D0%B9%D1%811-%D1%84%D0%BE%D1%822.jpg');background-size:cover;background-position:center"></div>
+            <div class="case-photo" style="background-image:url('https://raw.githubusercontent.com/forma-product/FORMA/main/%D0%BA%D0%B5%D0%B9%D1%811-%D1%84%D0%BE%D1%823.jpg');background-size:cover;background-position:center"></div>
+            <div class="case-photo" style="background-image:url('https://raw.githubusercontent.com/forma-product/FORMA/main/%D0%BA%D0%B5%D0%B9%D1%811-%D1%84%D0%BE%D1%824.jpg');background-size:cover;background-position:center"></div>
+            <div class="case-photo" style="background-image:url('https://raw.githubusercontent.com/forma-product/FORMA/main/%D0%BA%D0%B5%D0%B9%D1%811-%D1%84%D0%BE%D1%825.jpg');background-size:cover;background-position:center"></div>
+            <div class="case-photo" style="background-image:url('https://raw.githubusercontent.com/forma-product/FORMA/main/%D0%BA%D0%B5%D0%B9%D1%811-%D1%84%D0%BE%D1%826.jpg');background-size:cover;background-position:center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 2 -->
+    <div class="case-card">
+      <div class="case-top">
+        <div class="case-label">Кейс 2</div>
+        <div class="case-meta-row">
+          <div class="case-stat"><div class="case-stat-n">1 000 ед.</div><div class="case-stat-l">тираж</div></div>
+          <div class="case-stat"><div class="case-stat-n">6 нед.</div><div class="case-stat-l">от старта до склада</div></div>
+          <div class="case-stat"><div class="case-stat-n">−25%</div><div class="case-stat-l">себестоимость ниже рынка</div></div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-info">
+          <div class="case-title">Костюмная коллекция из Киргизии</div>
+          <div class="case-type">Разработка с нуля + производство в Бишкеке</div>
+          <div class="case-block">
+            <div class="case-block-label">Задача</div>
+            <p class="case-block-text">Разработать несколько моделей костюмов с идеальной посадкой и низкой себестоимостью.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-block-label">Решение</div>
+            <p class="case-block-text">Разработали модели с нуля у опытного конструктора в Москве, довели посадку до идеала на фокус-группе, перенесли на несколько проверенных производств в Бишкеке, отшили за 2 недели, проверили независимым ОТК, привезли и отсняли контент.</p>
+          </div>
+        </div>
+        <div class="case-photos">
+          <div class="case-photo-grid">
+            <div class="case-photo v2" style="grid-row:span 2"><div class="case-ph-label">Фото коллекции</div></div>
+            <div class="case-photo v3"></div>
+            <div class="case-photo"></div>
+            <div class="case-photo v4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHO -->
+<div class="who" id="who">
+  <div class="wrap">
+    <div class="who-title">Мы работаем <em>не со всеми</em> — и это честно</div>
+    <div class="who-sub" style="margin-top:8px;margin-bottom:48px">Чтобы не тратить ваше время на переговоры, если не совпадаем.</div>
+  </div>
+  <div class="who-grid" style="max-width:1100px;margin:0 auto">
+    <div class="who-col">
+      <div class="who-col-label">Подходит, если вы —</div>
+      <div class="who-item"><span class="who-icon">✓</span><span>Бренд женской одежды 2–8 лет с собственным стилем</span></div>
+      <div class="who-item"><span class="who-icon">✓</span><span>Продаёте через сайт, маркетплейсы или шоурум</span></div>
+      <div class="who-item"><span class="who-icon">✓</span><span>Хотите развивать ассортимент системно, а не по вдохновению</span></div>
+      <div class="who-item"><span class="who-icon">✓</span><span>Готовы делегировать и доверять экспертизе партнёра</span></div>
+      <div class="who-item"><span class="who-icon">✓</span><span>Ищете долгосрочный результат, а не быстрый запуск любой ценой</span></div>
+    </div>
+    <div class="who-col dark">
+      <div class="who-col-label">Скорее не ваш вариант, если —</div>
+      <div class="who-item"><span class="who-icon" style="color:rgba(248,245,240,.3)">✗</span><span>Только начинаете бренд с нуля и бюджет очень ограничен</span></div>
+      <div class="who-item"><span class="who-icon" style="color:rgba(248,245,240,.3)">✗</span><span>Хотите результат через 2 недели — производственный цикл длиннее</span></div>
+      <div class="who-item"><span class="who-icon" style="color:rgba(248,245,240,.3)">✗</span><span>Принимаете все решения сами и не готовы слышать другую точку зрения</span></div>
+      <div class="who-item"><span class="who-icon" style="color:rgba(248,245,240,.3)">✗</span><span>Нужна только съёмка или только дизайн — мы не делаем частичный сервис</span></div>
+      <div class="who-item"><span class="who-icon" style="color:rgba(248,245,240,.3)">✗</span><span>Мужская или детская одежда — наша экспертиза в женском</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- VS ШТАТ -->
+<div class="vs" id="vs">
+  <div class="vs-header">
+    <div class="vs-title">FORMA <em>vs</em><br>штатный продакт</div>
+    <div class="vs-note">Штатный — очевидное решение. Но посмотрим на цифры честно. Поиск занимает 3–4 месяца. Уходит — всё начинается заново. Один человек не закрывает весь цикл.</div>
+  </div>
+  <div class="vs-table">
+    <div class="vr vh">
+      <div class="vc">Параметр</div>
+      <div class="vc">Штатный продакт</div>
+      <div class="vc">FORMA</div>
+    </div>
+    <div class="vr"><div class="vc">Когда начнёт работать</div><div class="vc bad">Через 3–4 месяца</div><div class="vc good">На первой неделе</div></div>
+    <div class="vr"><div class="vc">Стоимость в месяц</div><div class="vc bad">150–200 тыс. + налоги</div><div class="vc good">от 90 тыс. ₽</div></div>
+    <div class="vr"><div class="vc">Команда</div><div class="vc bad">Один человек — один навык</div><div class="vc good">Продакт + конструктор + контент</div></div>
+    <div class="vr"><div class="vc">Производство в Китае</div><div class="vc bad">Редко, нет связей</div><div class="vc good">Да, прямые контакты</div></div>
+    <div class="vr"><div class="vc">Риск ухода</div><div class="vc bad">Высокий — всё с нуля</div><div class="vc good">Нет — экспертиза остаётся</div></div>
+    <div class="vr"><div class="vc">Больничные, отпуск</div><div class="vc bad">Ваша ответственность</div><div class="vc good">Не ваша проблема</div></div>
+    <div class="vr vtotal"><div class="vc">Итого за год</div><div class="vc" style="color:var(--ink-light)">2,0–2,5 млн ₽</div><div class="vc">от 1,08 млн ₽</div></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq" id="faq">
+  <div class="faq-header">
+    <div class="faq-title">Вопросы перед<br><em>началом работы</em></div>
+    <div class="faq-intro">Собрали самые частые вопросы, которые задают до подписания договора. Если не нашли свой — напишите нам напрямую.</div>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Как вы погружаетесь в ДНК нашего бренда?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Первые две недели — только погружение. Изучаем весь архив коллекций, данные продаж, читаем отзывы покупателей, анализируем конкурентов и проводим глубокое интервью с вами. <strong>Мы не приходим с готовыми решениями из другого бренда</strong> — каждый проект начинается с чистого листа.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Кто конкретно ведёт проект?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">У вас один постоянный контакт — продакт-директор, который ведёт проект от начала до конца. <strong>Не менеджер на телефоне</strong>, не команда которая меняется каждый месяц. Конструктор и контент-продюсер подключаются на конкретных этапах, но ответственный — один человек.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Я сама хочу участвовать в разработке — или вы делаете без меня?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Мы работаем вместе, не вместо вас. <strong>Вы принимаете все ключевые решения</strong> — утверждаете концепцию, выбираете из предложенных вариантов, даёте финальное «да» перед запуском тиража. Мы снимаем с вас операционку.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Какой минимальный срок сотрудничества?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">По подписке — <strong>минимум 3 месяца</strong>. Это минимальный цикл чтобы пройти от стратегии до готовых изделий. Для разовых проектов (аудит или коллекция под ключ) — без ограничений по времени.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Вы работаете с нашей фабрикой или только со своими?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Можем работать с вашим производством — это даже упрощает старт. Если ваша фабрика не закрывает задачу — предложим альтернативу. У нас прямые контакты с производствами <strong>в России, Китае и Киргизии</strong>.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Вы отвечаете за продажи новой коллекции?<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Честно — нет. Мы отвечаем за то, что продукт <strong>разработан правильно, произведён в срок, соответствует ДНК бренда и готов к продаже</strong>. Коммерческий результат зависит от маркетинга и каналов — это ваша зона.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BLOCK -->
+<div class="cta-block" id="apply">
+  <div class="cta-inner">
+    <div class="cta-text-wrap">
+      <div class="cta-tag">Начать работу</div>
+      <div class="cta-heading">Расскажите о задаче —<br><em>ответим в тот же день</em></div>
+      <p class="cta-desc">Оставьте контакт и коротко опишите задачу. Первый разговор — 30 минут, без обязательств. Если ваша задача не наша — честно скажем и подскажем куда идти.</p>
+      <form onsubmit="handleCta(event)" style="display:flex;flex-direction:column;gap:10px">
+        <div class="cta-form">
+          <input type="text" id="ctaName" placeholder="Имя и бренд" required>
+          <input type="text" id="ctaContact" placeholder="Telegram или телефон" required style="border-left:1px solid var(--rule)">
+          <button type="submit">Отправить →</button>
+        </div>
+        <select id="ctaFormat" style="background:var(--bg);border:1px solid var(--rule);padding:13px 18px;font-family:var(--sans);font-size:13px;font-weight:300;color:var(--ink-mid);outline:none;-webkit-appearance:none;appearance:none">
+          <option value="" disabled selected>Формат работы</option>
+          <option>Продуктовая подписка</option>
+          <option>Аудит ассортимента</option>
+          <option>Коллекция под ключ</option>
+          <option>Корпоративный артефакт</option>
+          <option>Премиальный текстиль</option>
+          <option>Пока не знаю</option>
+        </select>
+        <div id="ctaSuccess" style="display:none;padding:16px;background:var(--bg2);font-size:13px;color:var(--ink-mid);font-weight:300;font-family:'Playfair Display',serif;font-style:italic">Заявка получена — свяжемся сегодня.</div>
+      </form>
+    </div>
+    <div class="cta-photo-bg"></div>
+  </div>
+</div>
+
+<!-- FOOTER NAV -->
+<div class="footer-nav">
+  <div class="footer-nav-inner">
+    <div class="footer-nav-links">
+      <a href="#what">Услуги</a>
+      <a href="#packages">Пакеты</a>
+      <a href="#who">Кому подходим</a>
+      <a href="#faq">FAQ</a>
+      <a href="#apply">Контакт</a>
+    </div>
+    <div class="footer-social">
+      <a href="#">Telegram</a>
+      <a href="#">Instagram</a>
+      <a href="#">hello@forma.agency</a>
+    </div>
+  </div>
+</div>
+
+<!-- INSTA-STYLE BOTTOM STRIP -->
+<div class="insta-grid">
+  <div class="insta-inner">
+    <div class="insta-label">наши изделия появятся здесь...</div>
+    <div class="insta-photos">
+      <div class="insta-photo"></div>
+      <div class="insta-photo"></div>
+      <div class="insta-photo"></div>
+      <div class="insta-photo"></div>
+      <div class="insta-photo"></div>
+    </div>
+    <div class="insta-signup">
+      <div class="insta-signup-title">Telegram</div>
+      <div class="insta-signup-sub">Подписаться<br>на канал</div>
+      <div class="insta-signup-arrow">↓</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 FORMA — Продуктовое агентство</p>
+  <p>Designed with intention · <a href="#">Политика конфиденциальности</a></p>
+</footer>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const ans=item.querySelector('.faq-a');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight='0';
+  });
+  if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+}
+function handleCta(e){
+  e.preventDefault();
+  document.getElementById('ctaSuccess').style.display='block';
+  e.target.querySelector('button').style.display='none';
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
