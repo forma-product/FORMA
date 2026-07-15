@@ -86,7 +86,7 @@ section{padding:80px 5%}
 
 /* QUOTE */
 .quote-sec{background:var(--bg);padding:80px 5%}
-.quote-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
+.quote-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
 .quote-mark{font-family:var(--serif);font-size:120px;line-height:.5;color:var(--bg3);margin-bottom:16px;font-weight:400;display:block}
 .quote-text{font-family:var(--serif);font-size:clamp(20px,2.8vw,32px);font-weight:400;line-height:1.45;color:var(--ink);margin-bottom:20px}
 .quote-text em{font-style:italic;color:var(--ink-mid)}
@@ -399,13 +399,15 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
 <!-- QUOTE -->
 <div class="quote-sec">
   <div class="quote-inner">
-    <div style="position:relative">
-      <div style="width:100%;aspect-ratio:3/4;background-image:url('./image-15-07-26-09-53.jpeg');background-size:cover;background-position:center;border-radius:4px"></div>
-    </div>
     <div>
       <span class="quote-mark">"</span>
       <div class="quote-text">Я понимаю что делать, но не успеваю. Продукт придумываю я, производство веду я, образцы принимаю я. А ещё продажи, команда, маркетинг. <em>Где-то в этом и теряется рост.</em></div>
       <div class="quote-source">Типичный запрос от основателя бренда 3–7 лет</div>
+    </div>
+    <div>
+      <div class="quote-photo" style="background-image:url('./image-15-07-26-09-53.jpeg');background-size:cover;background-position:center">
+        <div class="quote-photo-badge">Так бывает у всех</div>
+      </div>
     </div>
   </div>
 </div>
