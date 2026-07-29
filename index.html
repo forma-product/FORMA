@@ -303,6 +303,32 @@ section{padding:80px 5%}
 #ctaSuccess{display:none;padding:16px;background:var(--bg2);font-size:13px;color:var(--ink-mid);font-weight:300;font-family:var(--serif);font-style:italic}
 @media(max-width:768px){.cta-inner{grid-template-columns:1fr}.cta-photo-bg{display:none}.cta-text-wrap{margin-right:0;padding:36px 24px}}
 
+
+/* TRANSPARENCY */
+.transp-sec{background:var(--bg);padding:80px 5%}
+.transp-eyebrow{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px}
+.transp-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:16px}
+.transp-title em{font-style:italic;color:var(--ink-mid)}
+.transp-sub{font-size:14px;font-weight:300;color:var(--ink-mid);line-height:1.8;font-style:italic;max-width:680px;margin-bottom:48px;font-family:var(--serif)}
+.transp-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:40px}
+.transp-card{background:var(--bg2);border:1px solid var(--rule);padding:24px 22px}
+.transp-num{font-size:11px;letter-spacing:.16em;color:var(--ink-light);font-weight:300;margin-bottom:10px}
+.transp-card-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.transp-card-text{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.75}
+.transp-result{margin-bottom:28px;padding:28px 32px;background:var(--bg2);border-radius:2px}
+.transp-result-label{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);margin-bottom:10px}
+.transp-result-text{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.8}
+.transp-table-wrap{overflow-x:auto;margin-bottom:24px}
+.transp-table{width:100%;border-collapse:collapse;font-size:12px}
+.transp-table th{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;padding:10px 16px;text-align:left;background:var(--ink);color:rgba(248,245,240,.5);border-right:1px solid rgba(248,245,240,.1)}
+.transp-table th.th-forma{color:rgba(248,245,240,.9);background:var(--ink)}
+.transp-table td{padding:12px 16px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);font-weight:300;color:var(--ink-mid);vertical-align:top;line-height:1.55}
+.transp-table td:first-child{font-weight:400;color:var(--ink);background:var(--bg2)}
+.transp-table td:last-child{color:var(--ink);font-weight:400;border-right:none}
+.transp-table tr:last-child td{border-bottom:none}
+.transp-footnote{font-family:var(--serif);font-size:14px;font-style:italic;color:var(--ink-mid);line-height:1.65;border-left:2px solid var(--ink-light);padding-left:16px;max-width:720px}
+@media(max-width:680px){.transp-cards{grid-template-columns:1fr}}
+
 /* FOOTER NAV */
 .footer-nav{background:var(--bg);border-top:1px solid var(--rule);padding:20px 5%}
 .footer-nav-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
@@ -584,7 +610,7 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
       </div>
       <div class="pkg-row">
         <div><div class="pkg-name featured">Подписка ★</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Ежемесячно · от 3 мес.</div></div>
-        <div class="pkg-desc">Постоянный продакт-директор на аутсорсе. Ведение разработки новых моделей, производственной цепочки, контент. Еженедельные отчёты, оперативная связь.</div>
+        <div class="pkg-desc">Постоянный продакт-директор на аутсорсе — фактическая замена штатного сотрудника. Разработка 4–5 артикулов ежемесячно, полное сопровождение производства от ТЗ до отгрузки, тренд-аналитика на каждый цикл, контроль подрядчиков и качества партий. Еженедельные созвоны, несколько очных встреч с собственником бренда, оперативная связь.</div>
         <div><div class="pkg-price">от 90 000 ₽</div><div class="pkg-per">в месяц</div></div>
         <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
       </div>
@@ -908,6 +934,60 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
       <div class="prod-result-label">Ваш результат</div>
       <div class="prod-result-text">Партия отгружается по договору, в котором ваши интересы защищены. Никаких «я думал, вы сделаете по-другому» — только зафиксированные параметры и ответственность за их нарушение.</div>
     </div>
+  </div>
+</div>
+
+<!-- TRANSPARENCY -->
+<div class="transp-sec">
+  <div class="wrap">
+    <div class="transp-eyebrow">— Прозрачность расчётов</div>
+    <h2 class="transp-title">Прозрачность расчётов и<br><em>контроль на каждом этапе</em></h2>
+    <p class="transp-sub">Вы видите, из чего складывается цена, общаетесь напрямую с теми, кто делает вашу вещь, и знаете сроки и стоимость до старта — без сюрпризов по ходу проекта.</p>
+    <div class="transp-cards">
+      <div class="transp-card">
+        <div class="transp-num">01</div>
+        <div class="transp-card-title">Прозрачное ценообразование</div>
+        <p class="transp-card-text">Стоимость разработки и производства раскладывается по статьям — материалы, работа конструктора, пошив, логистика, контроль качества — а не выдаётся одной непрозрачной суммой. Вы видите, за что именно платите, и можете сверить это с рынком.</p>
+      </div>
+      <div class="transp-card">
+        <div class="transp-num">02</div>
+        <div class="transp-card-title">Прямой контакт с подрядчиками</div>
+        <p class="transp-card-text">Вы можете напрямую общаться с конструктором, технологом и производством на любом этапе — от обсуждения лекала до приёмки партии на фабрике. Никакой «чёрной комнаты», где решения принимаются без вашего участия.</p>
+      </div>
+      <div class="transp-card">
+        <div class="transp-num">03</div>
+        <div class="transp-card-title">Фиксация сроков и цены в договоре</div>
+        <p class="transp-card-text">Сроки и стоимость фиксируются до начала работ и не меняются по ходу проекта. Если что-то влияет на цену — например, изменение объёма или материала — это обсуждается и согласуется заранее, а не всплывает доплатой по факту.</p>
+      </div>
+      <div class="transp-card">
+        <div class="transp-num">04</div>
+        <div class="transp-card-title">Жёсткий контроль подрядчиков</div>
+        <p class="transp-card-text">Каждый этап — от образца до готовой партии — проходит проверку по чётким критериям качества. Подрядчики работают по зафиксированным нормам брака и срокам, а не «как получится».</p>
+      </div>
+    </div>
+    <div class="transp-result">
+      <div class="transp-result-label">Что это даёт в итоге</div>
+      <p class="transp-result-text">Прозрачность и прямой контроль — это не просто комфорт, а конкретная экономия: клиент не переплачивает за посреднические наценки, которые не видно в структуре цены, и не платит за исправление ошибок, которые не были пойманы вовремя.</p>
+    </div>
+    <div class="transp-table-wrap">
+      <table class="transp-table">
+        <thead>
+          <tr>
+            <th>Параметр</th>
+            <th>Типичное агентство</th>
+            <th class="th-forma">FORMA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Структура цены</td><td>Одна общая сумма без разбивки</td><td>Постатейный расчёт: материалы, работа, логистика, контроль</td></tr>
+          <tr><td>Доступ к процессу</td><td>Только через менеджера агентства</td><td>Прямой контакт с конструктором, технологом, производством</td></tr>
+          <tr><td>Сроки и цена</td><td>Могут меняться по ходу проекта</td><td>Зафиксированы в договоре до старта работ</td></tr>
+          <tr><td>Контроль качества</td><td>По отчётам агентства на словах</td><td>Проверка по зафиксированным критериям на каждом этапе</td></tr>
+          <tr><td>Итоговая доплата</td><td>Риск непредвиденных доплат по факту</td><td>Исключена — все условия согласованы заранее</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="transp-footnote">Такой уровень прозрачности возможен именно потому, что FORMA работает с проверенной сетью подрядчиков напрямую, а не через дополнительный слой посредников — это и снижает риски, и позволяет держать цену честной.</p>
   </div>
 </div>
 
