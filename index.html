@@ -84,6 +84,16 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5
 section{padding:80px 5%}
 .wrap{max-width:1100px;margin:0 auto}
 
+
+/* ANCHOR NAV */
+.anchor-nav{background:var(--bg2);border-bottom:1px solid var(--rule);overflow-x:auto;scrollbar-width:none}
+.anchor-nav::-webkit-scrollbar{display:none}
+.anchor-nav-inner{display:flex;gap:0;white-space:nowrap;padding:0 5%;min-width:max-content}
+.anchor-nav a{font-size:11px;font-weight:300;color:var(--ink-mid);text-decoration:none;letter-spacing:.06em;padding:14px 20px;display:inline-block;border-right:1px solid var(--rule);transition:all .2s;flex-shrink:0}
+.anchor-nav a:first-child{padding-left:0}
+.anchor-nav a:hover{color:var(--ink);background:rgba(26,24,21,.03)}
+@media(max-width:768px){.anchor-nav a{padding:12px 14px;font-size:10px}}
+
 /* QUOTE */
 .quote-sec{background:var(--bg);padding:80px 5%}
 .quote-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
@@ -97,7 +107,7 @@ section{padding:80px 5%}
 @media(max-width:768px){.quote-inner{grid-template-columns:1fr}}
 
 /* ERRORS */
-.errors-sec{background:var(--bg2);padding:80px 5%}
+.errors-sec{background:var(--bg2);padding:80px 5%;border-bottom:1px solid var(--rule)}
 .errors-eyebrow{font-size:10px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-light);margin-bottom:12px}
 .errors-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.15;color:var(--ink);margin-bottom:48px}
 .errors-title em{font-style:italic;color:var(--ink-mid)}
@@ -136,7 +146,7 @@ section{padding:80px 5%}
 @media(max-width:600px){.vc{padding:10px 12px;font-size:11px}.vs-header{grid-template-columns:1fr}}
 
 /* WHAT */
-.what{background:var(--bg2);padding:80px 5%}
+.what{background:var(--bg);padding:80px 5%}
 .what-eyebrow{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .what-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:48px}
 .what-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
@@ -156,7 +166,7 @@ section{padding:80px 5%}
 @media(max-width:600px){.what-table{grid-template-columns:1fr}}
 
 /* PACKAGES */
-.packages{background:var(--bg);padding:80px 5%}
+.packages{background:var(--bg2);padding:80px 5%;border-top:1px solid var(--rule)}
 .pkg-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px}
 .pkg-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:400;line-height:1.1;color:var(--ink)}
 .pkg-title em{font-style:italic;color:var(--ink-mid)}
@@ -177,7 +187,7 @@ section{padding:80px 5%}
 @media(max-width:768px){.pkg-row{grid-template-columns:1fr 1fr}.pkg-col-h:nth-child(3),.pkg-col-h:nth-child(4){display:none}.pkg-desc{display:none}.pkg-header{grid-template-columns:1fr}}
 
 /* CASES */
-.cases-sec{background:var(--bg2);padding:80px 5%}
+.cases-sec{background:var(--bg);padding:80px 5%;border-top:1px solid var(--rule)}
 .cases-eyebrow{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:16px}
 .cases-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:8px}
 .cases-title em{font-style:italic;color:var(--ink-mid)}
@@ -269,7 +279,7 @@ section{padding:80px 5%}
 @media(max-width:860px){.prod-top{grid-template-columns:1fr}.prod-hubs{grid-template-columns:1fr}.prod-legal{grid-template-columns:1fr}.prod-result{grid-template-columns:1fr;gap:12px}}
 
 /* FAQ */
-.faq{background:var(--bg2);padding:80px 5%}
+.faq{background:var(--bg);padding:80px 5%}
 .faq-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;max-width:1100px;margin-left:auto;margin-right:auto}
 .faq-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.1;color:var(--ink)}
 .faq-title em{font-style:italic;color:var(--ink-mid)}
@@ -335,7 +345,7 @@ section{padding:80px 5%}
 @media(max-width:680px){.preprod-result-grid{grid-template-columns:1fr}.preprod-vs{grid-template-columns:1fr}.preprod-vs-divider{display:none}}
 
 /* TRANSPARENCY */
-.transp-sec{background:var(--bg);padding:80px 5%}
+.transp-sec{background:var(--bg);padding:80px 5%;border-top:1px solid var(--rule)}
 .transp-eyebrow{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:20px}
 .transp-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:16px}
 .transp-title em{font-style:italic;color:var(--ink-mid)}
@@ -383,6 +393,12 @@ section{padding:80px 5%}
 @media(max-width:768px){.carousel-item{flex:0 0 calc(50% - 5px)}}
 @media(max-width:480px){.carousel-item{flex:0 0 75%}}
 
+
+/* SCROLL TO TOP */
+.scroll-top{position:fixed;bottom:28px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);border:none;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(26,24,21,.2);transition:all .2s;z-index:999}
+.scroll-top:hover{background:var(--ink-mid);transform:translateY(-2px)}
+.scroll-top.visible{display:flex}
+
 /* FOOTER */
 footer{background:var(--ink);border-top:1px solid rgba(248,245,240,.08);padding:28px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 footer p{font-size:10px;color:rgba(248,245,240,.3);font-weight:200;letter-spacing:.06em}
@@ -394,8 +410,7 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-links">
-    <a href="#">Telegram</a>
-    <a href="#">Instagram</a>
+    <a href="mailto:forma.agency.aa@gmail.com">forma.agency.aa@gmail.com</a>
   </div>
   <div class="topbar-tag">Продуктовое агентство полного цикла</div>
 </div>
@@ -404,7 +419,7 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
 <nav>
   <div class="nav-logo">Forma</div>
   <div class="nav-links">
-    <a href="#what">Услуги</a>
+    <a href="#what">Что мы делаем</a>
     <a href="#cases">Кейсы</a>
     <a href="#about">О нас</a>
     <a href="#production">Производство</a>
@@ -452,6 +467,22 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
   </div>
 </div>
 
+
+<!-- ANCHOR NAV -->
+<div class="anchor-nav">
+  <div class="anchor-nav-inner">
+    <a href="#errors">Почему запуски не окупаются</a>
+    <a href="#what">Что мы делаем</a>
+    <a href="#preprod">Живой анализ оптовых площадок</a>
+    <a href="#transparency">Прозрачность расчётов</a>
+    <a href="#packages">Форматы работы</a>
+    <a href="#cases">Наши запуски</a>
+    <a href="#production">Производство и юридическое сопровождение</a>
+    <a href="#faq">Вопросы</a>
+    <a href="#start">Начать работу</a>
+  </div>
+</div>
+
 <!-- QUOTE -->
 <div class="quote-sec">
   <div class="quote-inner">
@@ -469,7 +500,7 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
 </div>
 
 <!-- TREND ERRORS -->
-<div class="errors-sec">
+<div class="errors-sec" id="errors">
   <div class="wrap">
     <div class="errors-eyebrow">Почему запуски не окупаются</div>
     <h2 class="errors-title">7 из 10 запусков одежды<br><em>теряют деньги на этих ошибках</em></h2>
@@ -508,23 +539,6 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
   </div>
 </div>
 
-<!-- VS ШТАТ -->
-<div class="vs" id="vs">
-  <div class="vs-header">
-    <div class="vs-title">FORMA <em>vs</em><br>штатный продакт</div>
-    <div class="vs-note">Штатный — очевидное решение. Но посмотрим на цифры честно. Поиск занимает 3–4 месяца. Уходит — всё начинается заново. Один человек не закрывает весь цикл.</div>
-  </div>
-  <div class="vs-table">
-    <div class="vr vh"><div class="vc">Параметр</div><div class="vc">Штатный продакт</div><div class="vc">FORMA</div></div>
-    <div class="vr"><div class="vc">Когда начнёт работать</div><div class="vc bad">Через 3–4 месяца</div><div class="vc good">На первой неделе</div></div>
-    <div class="vr"><div class="vc">Стоимость в месяц</div><div class="vc bad">150–200 тыс. + налоги</div><div class="vc good">от 90 тыс. ₽</div></div>
-    <div class="vr"><div class="vc">Команда</div><div class="vc bad">Один человек — один навык</div><div class="vc good">Продакт + конструктор + контент</div></div>
-    <div class="vr"><div class="vc">Производство РФ, Киргизия, Китай</div><div class="vc bad">Редко, нет связей</div><div class="vc good">Да, прямые контакты</div></div>
-    <div class="vr"><div class="vc">Риск ухода</div><div class="vc bad">Высокий — всё с нуля</div><div class="vc good">Нет — экспертиза остаётся</div></div>
-    <div class="vr"><div class="vc">Больничные, отпуск</div><div class="vc bad">Ваша ответственность</div><div class="vc good">Не ваша проблема</div></div>
-    <div class="vr vtotal"><div class="vc">Итого за год</div><div class="vc" style="color:var(--ink-light)">2,0–2,5 млн ₽</div><div class="vc">от 1,08 млн ₽</div></div>
-  </div>
-</div>
 
 <!-- WHAT WE DO -->
 <div class="what" id="what">
@@ -607,10 +621,10 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
 </div>
 
 <!-- PREPRODUCTION -->
-<div class="preprod-sec">
+<div class="preprod-sec" id="preprod">
   <div class="wrap">
-    <div class="preprod-eyebrow">— Предподготовка к разработке</div>
-    <h2 class="preprod-title">Прежде чем разрабатывать —<br><em>мы идём на рынок</em></h2>
+    <div class="preprod-eyebrow">— Живой анализ оптовых площадок</div>
+    <h2 class="preprod-title">Прежде чем разрабатывать —<br><em>мы идём на оптовые живые площадки</em></h2>
     <p class="preprod-sub">Когда стоит задача выдержать себестоимость и запустить производство в Киргизии, мы не начинаем с дизайна. Сначала — полевой анализ: цены, ткани, модели, возможности фабрик. Это позволяет разрабатывать продукт который реально произвести в нужном бюджете.</p>
 
     <div class="preprod-steps">
@@ -683,7 +697,7 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
 </div>
 
 <!-- TRANSPARENCY -->
-<div class="transp-sec">
+<div class="transp-sec" id="transparency">
   <div class="wrap">
     <div class="transp-eyebrow">— Прозрачность расчётов</div>
     <h2 class="transp-title">Прозрачность расчётов и<br><em>контроль на каждом этапе</em></h2>
@@ -776,8 +790,8 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
         <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
       </div>
       <div class="pkg-row">
-        <div><div class="pkg-name">Предподготовка</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">По запросу · живой обзор рынка</div></div>
-        <div class="pkg-desc">Живое посещение оптовых рынков: Дордой и Мадина (Бишкек) + ТЯК (Москва). Анализ продающихся моделей, цен на пошив и ткани, возможностей производств. Фотоотчёт и рекомендации по входу в категорию.</div>
+        <div><div class="pkg-name">Живой анализ оптовых площадок</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">По запросу · выезд</div></div>
+        <div class="pkg-desc">(с посещением Дордой Бишкек — опт готовых изделий, Мадина Бишкек — опт тканей, ТЯК Москва). Анализ продающихся моделей, цен на пошив и ткани, возможностей производств. Фотоотчёт и рекомендации по входу в категорию.</div>
         <div><div class="pkg-price">30 000 ₽</div><div class="pkg-per">за выезд</div></div>
         <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
       </div>
@@ -1134,7 +1148,7 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
 </div>
 
 <!-- CTA BLOCK -->
-<div class="cta-block" id="apply">
+<div class="cta-block" id="start" id="apply">
   <div class="cta-inner">
     <div class="cta-text-wrap">
       <div class="cta-tag">Начать работу</div>
@@ -1150,7 +1164,7 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
           <option>Продуктовая подписка</option>
           <option>Тренд-аналитика</option>
           <option>Разработка продукта</option>
-          <option>Предподготовка (живой обзор рынка)</option>
+          <option>Живой анализ оптовых площадок</option>
           <option>Бесплатная консультация</option>
           <option>Пока не знаю</option>
         </select>
@@ -1174,9 +1188,7 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
       <a href="#faq">FAQ</a>
     </div>
     <div class="footer-social">
-      <a href="#">Telegram</a>
-      <a href="#">Instagram</a>
-      <a href="#">hello@forma.agency</a>
+      <a href="mailto:forma.agency.aa@gmail.com">forma.agency.aa@gmail.com</a>
     </div>
   </div>
 </div>
@@ -1224,6 +1236,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
   });
 });
+</script>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">↑</button>
+
+<script>
+window.addEventListener("scroll",function(){var btn=document.getElementById("scrollTop");btn.classList.toggle("visible",window.scrollY>400);});
 </script>
 </body>
 </html>
