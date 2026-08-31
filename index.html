@@ -167,6 +167,39 @@ section{padding:80px 5%}
 
 /* PACKAGES */
 .packages{background:var(--bg2);padding:80px 5%;border-top:1px solid var(--rule)}
+
+/* PACKAGES DETAIL */
+.pkg-detail{max-width:1100px;margin:0 auto}
+.pkg-detail-card{border-top:1px solid var(--rule);padding:48px 0}
+.pkg-detail-card:last-child{border-bottom:1px solid var(--rule)}
+.pkg-detail-header{margin-bottom:32px}
+.pkg-detail-title{font-family:var(--serif);font-size:clamp(26px,3vw,38px);font-weight:500;color:var(--ink);line-height:1.1;margin-bottom:4px}
+.pkg-detail-title em{font-weight:400;font-style:italic;color:var(--ink-mid)}
+.pkg-detail-meta{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:24px 0 32px;padding:20px 0}
+.pkg-detail-meta-col{padding:0 32px 0 0}
+.pkg-detail-meta-col+.pkg-detail-meta-col{padding-left:32px;border-left:1px solid var(--rule)}
+.pkg-detail-meta-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;font-weight:300}
+.pkg-detail-meta-val{font-family:var(--serif);font-size:clamp(22px,2.5vw,32px);font-weight:400;color:var(--ink);line-height:1.2}
+.pkg-detail-meta-sub{font-size:11px;color:var(--ink-light);font-weight:300;margin-top:3px}
+.pkg-detail-prices{display:flex;gap:40px;margin-top:4px}
+.pkg-detail-price-item{}
+.pkg-detail-price-num{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--ink)}
+.pkg-detail-price-label{font-size:11px;color:var(--ink-light);font-weight:300;margin-top:2px}
+.pkg-detail-body{display:grid;grid-template-columns:1fr}
+.pkg-detail-section-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);font-weight:300;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.pkg-detail-section-label::before{content:'—';color:var(--ink-light)}
+.pkg-detail-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:0}
+.pkg-detail-list li{font-size:14px;font-weight:300;color:var(--ink-mid);padding-left:20px;position:relative;line-height:1.65}
+.pkg-detail-list li::before{content:'—';position:absolute;left:0;color:var(--ink-light);font-size:12px}
+.pkg-detail-list li strong{font-weight:500;color:var(--ink)}
+.pkg-detail-list.sub{margin-top:6px;margin-left:20px}
+.pkg-detail-list.sub li{font-size:13px}
+.pkg-detail-list.sub li::before{content:'·';font-size:14px;top:-1px}
+.pkg-detail-cta{margin-top:28px}
+.pkg-detail-cta a{display:inline-block;border:1px solid var(--ink);padding:11px 24px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:all .2s}
+.pkg-detail-cta a:hover{background:var(--ink);color:var(--bg)}
+@media(max-width:768px){.pkg-detail-meta{grid-template-columns:1fr}.pkg-detail-meta-col+.pkg-detail-meta-col{padding-left:0;border-left:none;border-top:1px solid var(--rule);padding-top:16px;margin-top:16px}.pkg-detail-prices{flex-wrap:wrap;gap:24px}}
+
 .pkg-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px}
 .pkg-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:400;line-height:1.1;color:var(--ink)}
 .pkg-title em{font-style:italic;color:var(--ink-mid)}
@@ -763,43 +796,187 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
       <div class="pkg-title">Форматы работы<br><em>под разный этап</em></div>
       <div class="pkg-intro">Начинаем с того уровня, который нужен сейчас. Масштабируем по мере роста.</div>
     </div>
-    <div class="pkg-table">
-      <div class="pkg-row hd">
-        <div class="pkg-col-h">Пакет</div>
-        <div class="pkg-col-h">Что входит</div>
-        <div class="pkg-col-h">Стоимость</div>
-        <div class="pkg-col-h"></div>
+    <div class="pkg-detail">
+
+      <!-- 1. Консультация -->
+      <div class="pkg-detail-card">
+        <div class="pkg-detail-title">Консультация</div>
+        <div class="pkg-detail-meta">
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Срок</div>
+            <div class="pkg-detail-meta-val">1 встреча</div>
+            <div class="pkg-detail-meta-sub">до 60 минут</div>
+          </div>
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Стоимость</div>
+            <div class="pkg-detail-meta-val">5 000 ₽</div>
+            <div class="pkg-detail-meta-sub">разовая</div>
+          </div>
+        </div>
+        <div class="pkg-detail-body">
+          <div class="pkg-detail-section-label">Что входит</div>
+          <ul class="pkg-detail-list">
+            <li>Знакомство с брендом, разбор текущей ситуации</li>
+            <li>Краткий анализ ассортимента и продаж</li>
+            <li>Рекомендации по ассортиментной матрице и выявление точек роста</li>
+            <li>Ответы на конкретные вопросы по производству, тrendам или маркетплейсам</li>
+          </ul>
+        </div>
+        <div class="pkg-detail-cta"><a href="#apply">Записаться →</a></div>
       </div>
-      <div class="pkg-row">
-        <div><div class="pkg-name">Консультация</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Разовая</div></div>
-        <div class="pkg-desc">Знакомство с брендом, краткий анализ ассортимента и продаж. Рекомендации по ассортиментной матрице и выявление точек роста.</div>
-        <div><div class="pkg-price">5 000 ₽</div><div class="pkg-per">разовая</div></div>
-        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+
+      <!-- 2. Тренд-аналитика -->
+      <div class="pkg-detail-card">
+        <div class="pkg-detail-title">Тренд-аналитика</div>
+        <div class="pkg-detail-meta">
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Срок</div>
+            <div class="pkg-detail-meta-val">1 неделя</div>
+          </div>
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Стоимость</div>
+            <div class="pkg-detail-meta-val">15 000 ₽</div>
+            <div class="pkg-detail-meta-sub">за отчёт</div>
+          </div>
+        </div>
+        <div class="pkg-detail-body">
+          <div class="pkg-detail-section-label">Что входит</div>
+          <ul class="pkg-detail-list">
+            <li>Тренд-разбор ниши на сезон</li>
+            <li>5–10 актуальных моделей с референсами и коммерческим обоснованием</li>
+            <li>Рекомендации по выбору тканей, цветов и принтов</li>
+            <li>Анализ конкурентов и маркетплейс-аналитика по нише</li>
+          </ul>
+        </div>
+        <div class="pkg-detail-cta"><a href="#apply">Заказать →</a></div>
       </div>
-      <div class="pkg-row">
-        <div><div class="pkg-name">Тренд-аналитика</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Разовый проект</div></div>
-        <div class="pkg-desc">Тренд-разбор ниши на сезон, 5–10 актуальных моделей с референсами, рекомендации по выбору актуальных тканей, цветов и принтов.</div>
-        <div><div class="pkg-price">15 000 ₽</div><div class="pkg-per">за отчёт</div></div>
-        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+
+      <!-- 3. Разработка и производство -->
+      <div class="pkg-detail-card">
+        <div class="pkg-detail-title">Разработка и производство <em>новой коллекции</em></div>
+        <div class="pkg-detail-meta">
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Срок</div>
+            <div class="pkg-detail-meta-val">2–6 месяцев</div>
+            <div class="pkg-detail-meta-sub">зависит от объёма</div>
+          </div>
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Стоимость по объёму</div>
+            <div class="pkg-detail-prices">
+              <div class="pkg-detail-price-item">
+                <div class="pkg-detail-price-num">150 000 ₽</div>
+                <div class="pkg-detail-price-label">5 артикулов</div>
+              </div>
+              <div class="pkg-detail-price-item">
+                <div class="pkg-detail-price-num">275 000 ₽</div>
+                <div class="pkg-detail-price-label">10 артикулов</div>
+              </div>
+              <div class="pkg-detail-price-item">
+                <div class="pkg-detail-price-num">500 000 ₽</div>
+                <div class="pkg-detail-price-label">20 артикулов</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pkg-detail-body">
+          <div class="pkg-detail-section-label">Что входит</div>
+          <ul class="pkg-detail-list">
+            <li>Тренд-аналитика ниши и анализ конкурентов</li>
+            <li>Лекала, подбор ткани и фурнитуры, градация по размерам</li>
+            <li>Пошив образцов, примерка на фокус-группе</li>
+            <li>Поиск производства, договор, контроль на всех этапах, ОТК</li>
+            <li>Рекомендации по продакшену для съёмки и стилизации</li>
+          </ul>
+        </div>
+        <div class="pkg-detail-cta"><a href="#apply">Обсудить →</a></div>
       </div>
-      <div class="pkg-row">
-        <div><div class="pkg-name">Продукт</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Разовый проект</div></div>
-        <div class="pkg-desc">Разработка лекал и их градация. Пошив промежуточных и эталонного образцов. Примерка и корректировка. ТЗ и конфекционная карта для производства. Стоимость доп. услуг рассчитывается отдельно.</div>
-        <div><div class="pkg-price">от 25 000 ₽</div><div class="pkg-per">за артикул</div></div>
-        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+
+      <!-- 4. Подписка -->
+      <div class="pkg-detail-card">
+        <div class="pkg-detail-title">Подписка: <em>продуктолог на аутсорсе</em></div>
+        <div class="pkg-detail-meta">
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Срок</div>
+            <div class="pkg-detail-meta-val">от 3 месяцев</div>
+            <div class="pkg-detail-meta-sub">ежемесячно</div>
+          </div>
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Стоимость</div>
+            <div class="pkg-detail-meta-val">150 000 ₽/мес</div>
+          </div>
+        </div>
+        <div class="pkg-detail-body">
+          <div class="pkg-detail-section-label">Что входит</div>
+          <ul class="pkg-detail-list">
+            <li><strong>Включает этапы:</strong>
+              <ul class="pkg-detail-list sub">
+                <li>Ассортиментная матрица с производственным календарём</li>
+                <li>Разработка и производство новой коллекции (до 5 SKU ежемесячно)</li>
+                <li>Поиск тканей и производств для снижения себестоимости</li>
+                <li>Финансовая аналитика и планирование</li>
+              </ul>
+            </li>
+            <li>Полное погружение в бренд, управление матрицей</li>
+            <li>Поиск точек роста и новых идей, работа с отзывами и % выкупа</li>
+            <li>Контроль документов и сертификатов, аналитика и отчётность</li>
+          </ul>
+        </div>
+        <div class="pkg-detail-cta"><a href="#apply">Подключиться →</a></div>
       </div>
-      <div class="pkg-row">
-        <div><div class="pkg-name featured">Подписка ★</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">Ежемесячно · от 3 мес.</div></div>
-        <div class="pkg-desc">Постоянный продакт-директор на аутсорсе — фактическая замена штатного сотрудника. Разработка 4–5 артикулов ежемесячно, полное сопровождение производства от ТЗ до отгрузки, тренд-аналитика на каждый цикл, контроль подрядчиков и качества партий. Еженедельные созвоны, несколько очных встреч с собственником бренда, оперативная связь.</div>
-        <div><div class="pkg-price">150 000 ₽</div><div class="pkg-per">в месяц</div></div>
-        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+
+      <!-- 5. Сопровождение -->
+      <div class="pkg-detail-card">
+        <div class="pkg-detail-title">Дальнейшее сопровождение <em>без разработки новых артикулов</em></div>
+        <div class="pkg-detail-meta">
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Срок</div>
+            <div class="pkg-detail-meta-val">ежемесячно</div>
+          </div>
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Стоимость</div>
+            <div class="pkg-detail-meta-val">30 000 ₽/мес</div>
+          </div>
+        </div>
+        <div class="pkg-detail-body">
+          <div class="pkg-detail-section-label">Что входит</div>
+          <ul class="pkg-detail-list">
+            <li>Контроль текущего производства и качества</li>
+            <li>Контроль календаря, остатков и своевременного подсорта</li>
+            <li>Ежемесячный трекинг показателей, корректировка матрицы</li>
+            <li>Консультации по текущим операционным задачам</li>
+          </ul>
+        </div>
+        <div class="pkg-detail-cta"><a href="#apply">Подключиться →</a></div>
       </div>
-      <div class="pkg-row">
-        <div><div class="pkg-name">Живой анализ оптовых площадок</div><div style="font-size:10px;color:var(--ink-light);font-weight:300;margin-top:3px;letter-spacing:.06em">По запросу · выезд</div></div>
-        <div class="pkg-desc">(с посещением Дордой Бишкек — опт готовых изделий, Мадина Бишкек — опт тканей, ТЯК Москва). Анализ продающихся моделей, цен на пошив и ткани, возможностей производств. Фотоотчёт и рекомендации по входу в категорию.</div>
-        <div><div class="pkg-price">30 000 ₽</div><div class="pkg-per">за выезд</div></div>
-        <div class="pkg-btn"><a href="#apply">Выбрать →</a></div>
+
+      <!-- 6. Живой анализ -->
+      <div class="pkg-detail-card">
+        <div class="pkg-detail-title">Живой анализ <em>оптовых площадок</em></div>
+        <div class="pkg-detail-meta">
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Срок</div>
+            <div class="pkg-detail-meta-val">по запросу</div>
+            <div class="pkg-detail-meta-sub">выезд на площадки</div>
+          </div>
+          <div class="pkg-detail-meta-col">
+            <div class="pkg-detail-meta-label">Стоимость</div>
+            <div class="pkg-detail-meta-val">30 000 ₽</div>
+            <div class="pkg-detail-meta-sub">за выезд</div>
+          </div>
+        </div>
+        <div class="pkg-detail-body">
+          <div class="pkg-detail-section-label">Что входит</div>
+          <ul class="pkg-detail-list">
+            <li>Дордой Бишкек — анализ оптового рынка готовых изделий</li>
+            <li>Мадина Бишкек — анализ тканей и фурнитуры в наличии</li>
+            <li>ТЯК Москва — анализ продающихся моделей и ценового разброса</li>
+            <li>Фотоотчёт с продающимися моделями и ценами</li>
+            <li>Рекомендации по входу в категорию и выбору производства</li>
+          </ul>
+        </div>
+        <div class="pkg-detail-cta"><a href="#apply">Заказать →</a></div>
       </div>
+
     </div>
   </div>
 </div>
@@ -1166,11 +1343,12 @@ footer a{font-size:10px;color:rgba(248,245,240,.3);text-decoration:none}
         </div>
         <select name="format">
           <option value="" disabled selected>Формат работы</option>
-          <option>Продуктовая подписка</option>
+          <option>Консультация</option>
           <option>Тренд-аналитика</option>
-          <option>Разработка продукта</option>
+          <option>Разработка коллекции</option>
+          <option>Подписка (штатный продактолог)</option>
+          <option>Сопровождение без новых артикулов</option>
           <option>Живой анализ оптовых площадок</option>
-          <option>Бесплатная консультация</option>
           <option>Пока не знаю</option>
         </select>
         <button type="submit">Отправить заявку →</button>
